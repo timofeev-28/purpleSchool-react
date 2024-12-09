@@ -8,7 +8,9 @@ function App() {
   return (
     <div className="container">
       <Header title={data.mainPage.title} />
-      <Paragraph text={data.mainPage.text} fz={data.mainPage.fz} />
+
+      {/* Для примера пока передан font-size: 20px, но будет 16 по-умолчанию */}
+      <Paragraph text={data.mainPage.text} className="fz20" />
       <Button text={data.mainPage.button} />
     </div>
   );
