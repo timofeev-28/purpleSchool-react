@@ -1,0 +1,37 @@
+.nav__link {
+    position: relative;
+    display: block;
+    padding-right: 30px;
+    opacity: 0.8;
+}
+
+.nav__link.active {
+    opacity: 1;
+}
+
+.link-icon::after {
+    content: "";
+    position: absolute;
+    top: 50%;
+    right: 0;
+    width: 24px;
+    height: 24px;
+    transform: translateY(-50%);
+    background: url("./public/icons/entrance.svg") no-repeat center / 24px 24px;
+}
+
+.nav__count {
+    position: absolute;
+    top: 50%;
+    right: 0;
+    transform: translateY(-50%);
+    display: inline-block;
+    width: 24px;
+    height: 24px;
+    font-size: 14px;
+    font-weight: 600;
+    line-height: 24px;
+    text-align: center;
+    border-radius: 50%;
+    background: #7B6EF6;
+}
