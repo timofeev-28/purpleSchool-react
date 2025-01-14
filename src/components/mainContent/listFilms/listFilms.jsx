@@ -1,9 +1,9 @@
+import styles from "./listFilms.module.css";
 import CardFilm from "./cardFilm/cardFilm";
-import "./listFilms.css";
 
 export default function ListFilms() {
   return (
-    <div className="list-films">
+    <div className={styles["list-films"]}>
       <CardFilm />
     </div>
   );

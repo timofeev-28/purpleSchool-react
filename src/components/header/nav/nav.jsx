@@ -1,11 +1,11 @@
-import "./nav.css";
+import styles from "./nav.module.css";
 import Link from "../link/link";
 import data from "../../../assets/data";
 
 export default function Nav() {
   return (
-    <nav className="nav">
-      <ul className="nav__list">
+    <nav className={styles["nav"]}>
+      <ul className={styles["nav__list"]}>
         {data &&
           data.header?.map((el) => (
             <Link

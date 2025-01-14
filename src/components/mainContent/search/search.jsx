@@ -1,12 +1,14 @@
-import "./search.css";
+import cn from "classnames";
+import styles from "./search.module.css";
 
 export default function Search({ placeholder, value, onChange, className }) {
   const pl = placeholder ? placeholder : "";
-  const cl = "input" + " " + (className ? className : "");
 
   return (
     <input
-      className={cl}
+      className={cn(styles["input"], {
+        [styles[className]]: className,
+      })}
       type="text"
       placeholder={pl}
       value={value}

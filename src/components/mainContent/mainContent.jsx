@@ -1,4 +1,4 @@
-import "./mainContent.css";
+import styles from "./mainContent.module.css";
 import data from "../../assets/data.jsx";
 import Title from "./title/title.jsx";
 import Paragraph from "./paragraph/paragraph.jsx";
@@ -7,7 +7,7 @@ import ListFilms from "./listFilms/listFilms.jsx";
 
 export default function MainContent() {
   return (
-    <main className="main">
+    <main className={styles["main"]}>
       <div className="container">
         <Title title={data.mainPage.title} />
 

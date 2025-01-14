@@ -1,7 +1,14 @@
-import "./paragraph.css";
+import cn from "classnames";
+import styles from "./paragraph.module.css";
 
 export default function Paragraph({ text, className }) {
-  const cl = "descr" + (className ? " " + className : "");
-
-  return <p className={cl}>{text}</p>;
+  return (
+    <p
+      className={cn(styles["descr"], {
+        [styles[className]]: className,
+      })}
+    >
+      {text}
+    </p>
+  );
 }

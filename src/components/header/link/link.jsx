@@ -1,13 +1,19 @@
-import "./link.css";
+import cn from "classnames";
+import styles from "./link.module.css";
 
 export default function Link({ link, text, className, countFavorites }) {
-  const cl = "nav__link" + " " + (className ? className : "");
-
   return (
-    <li className="nav__item">
-      <a className={cl} href={link}>
+    <li className={styles["nav__item"]}>
+      <a
+        className={cn(styles["nav__link"], {
+          [styles[className]]: className,
+        })}
+        href={link}
+      >
         {text}
-        {countFavorites && <span className="nav__count">{countFavorites}</span>}
+        {countFavorites && (
+          <span className={styles["nav__count"]}>{countFavorites}</span>
+        )}
       </a>
     </li>
   );

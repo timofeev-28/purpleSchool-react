@@ -1,4 +1,4 @@
-import "./form.css";
+import styles from "./form.module.css";
 import { useState } from "react";
 import data from "../../../assets/data.jsx";
 import Search from "../search/search.jsx";
@@ -20,9 +20,9 @@ export default function Form() {
   };
 
   return (
-    <form className="form" onSubmit={onSubmitHandler}>
+    <form className={styles["form"]} onSubmit={onSubmitHandler}>
       <Search
-        className={"input-svg"}
+        className="input-svg"
         placeholder={data.mainPage.placeholder}
         value={inputValue}
         onChange={inputChange}
