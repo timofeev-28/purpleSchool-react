@@ -5,7 +5,7 @@ export default function CardFilm() {
   return (
     <>
       {data &&
-        data.mainPage?.cardsFilms?.map((card) => (
+        data.cardsFilms?.map((card) => (
           <div className={styles["card"]} key={card.id}>
             <span className={styles["card__rating"]}>{card.rating}</span>
             <a className={styles["card__img-link"]} href="./">
@@ -19,6 +19,9 @@ export default function CardFilm() {
             <button className={styles["card__btn"]}>В избранное</button>
           </div>
         ))}
+      {(!data || !data.cardsFilms || data.cardsFilms.length === 0) && (
+        <p>Упсс... Ничего не загрузилось! Пардон...</p>
+      )}
     </>
   );
 }

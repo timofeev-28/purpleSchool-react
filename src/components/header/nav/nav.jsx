@@ -1,21 +1,19 @@
 import styles from "./nav.module.css";
 import Link from "../link/link";
-import data from "../../../assets/data";
 
-export default function Nav() {
+export default function Nav({ userName, onClick }) {
   return (
     <nav className={styles["nav"]}>
       <ul className={styles["nav__list"]}>
-        {data &&
-          data.header?.map((el) => (
-            <Link
-              key={el.id}
-              link={el.link}
-              text={el.text}
-              countFavorites={el.countFavorites}
-              className={el.class}
-            />
-          ))}
+        <Link link="./" text="Поиск фильмов" />
+        <Link link="./" text="Мои фильмы" countFavorites="2" />
+        {userName && <Link link="./" text={userName} appearance="icon-user" />}
+        <Link
+          onClick={onClick}
+          link="./"
+          text={userName ? "Выйти" : "Войти"}
+          appearance="icon-entrance"
+        />
       </ul>
     </nav>
   );
