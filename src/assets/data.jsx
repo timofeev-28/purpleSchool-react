@@ -49,16 +49,6 @@ const data = {
       rating: 456,
     },
   ],
-  // localStorage: [
-  //   {
-  //     name: "Дмитрий",
-  //     isLogined: true,
-  //   },
-  //   {
-  //     name: "Галина",
-  //     isLogined: false,
-  //   },
-  // ],
 };
 
 export default data;

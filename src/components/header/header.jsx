@@ -1,15 +1,14 @@
 import cn from "classnames";
 import styles from "./header.module.css";
-// import Logo from "./logo/logo";
-// import Nav from "./nav/nav";
+import Logo from "./logo/logo";
+import Nav from "./nav/nav";
 
-export default function Header({ children }) {
+export default function Header() {
   return (
     <header className={styles["header"]}>
       <div className={cn(styles["header-container"], ["container"])}>
-        {children}
-        {/* <Logo />
-        <Nav /> */}
+        <Logo />
+        <Nav />
       </div>
     </header>
   );

@@ -1,12 +1,14 @@
-import { useEffect, useReducer, useRef } from "react";
-import Input from "../../input/input.jsx";
-import Button from "../../button/button.jsx";
-import Form from "../../form/form.jsx";
+import { useEffect, useReducer, useRef, useContext } from "react";
+import Input from "../../input/input";
+import Button from "../../button/button";
+import Form from "../../form/form";
 import { formReducer, INITIAL_STATE } from "./entranceForm.state.js";
+import { UserContext } from "../../../../context/user.context";
 
-export default function EntranceForm({ onSubmit, isLogined }) {
+export default function EntranceForm() {
   const [formState, dispatchForm] = useReducer(formReducer, INITIAL_STATE);
   const { isValid, value, isFormReadyToSubmit } = formState;
+  const { user, setUser } = useContext(UserContext);
   const userRef = useRef();
 
   const focusError = () => {
@@ -21,7 +23,7 @@ export default function EntranceForm({ onSubmit, isLogined }) {
 
   useEffect(() => {
     if (isFormReadyToSubmit) {
-      onSubmit(value);
+      setUser({ name: value.userName, isLogined: true });
       dispatchForm({ type: "CLEAR" });
     }
   }, [isFormReadyToSubmit]);
@@ -48,12 +50,12 @@ export default function EntranceForm({ onSubmit, isLogined }) {
         type="text"
         name="userName"
         isValid={isValid.userName}
-        isLogined={isLogined}
+        isLogined={user?.isLogined}
         placeholder="Ваше имя"
         value={value.userName}
         onChange={inputChange}
       />
-      <Button text="Войти в профиль" isLogined={isLogined} />
+      <Button text="Войти в профиль" isLogined={user?.isLogined} />
     </Form>
   );
 }
