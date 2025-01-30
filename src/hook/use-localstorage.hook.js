@@ -12,19 +12,21 @@ export function useLocalStorage(key) {
     }, []);
 
     const saveData = (user) => {
-        let res = JSON.parse(localStorage.getItem(key));
-        const userIsLogined = res?.find(el => el.name === user.name && el.isLogined === true);
+        const res = JSON.parse(localStorage.getItem(key));
+
+        const getFilteredRes = () => {
+            const filteredRes = res.filter(el => el.name !== user.name);
+            localStorage.setItem(key, JSON.stringify([...filteredRes, user]));
+        }
 
         if (!res) {
             localStorage.setItem(key, JSON.stringify([user]));
             setData(user);
-        } else if (userIsLogined) {
-            res = res.filter(el => el.name !== user.name);
-            localStorage.setItem(key, JSON.stringify([...res, user]));
+        } else if (!user.isLogined) {
+            getFilteredRes();
             setData(null);
         } else {
-            res = res.filter(el => el.name !== user.name);
-            localStorage.setItem(key, JSON.stringify([...res, user]));
+            getFilteredRes();
             setData(user);
         }
     }

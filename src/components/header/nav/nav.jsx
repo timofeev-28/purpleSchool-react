@@ -24,7 +24,7 @@ export default function Nav() {
         <Link
           onClick={linkClickHandler}
           link="./"
-          text={user?.name ? "Выйти" : "Войти"}
+          text={user?.isLogined ? "Выйти" : "Войти"}
           appearance="icon-entrance"
         />
       </ul>
