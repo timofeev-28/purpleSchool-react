@@ -9,7 +9,7 @@
     opacity: 1;
 }
 
-.link-icon::after {
+.link-entrance::after {
     content: "";
     position: absolute;
     top: 50%;
@@ -18,6 +18,17 @@
     height: 24px;
     transform: translateY(-50%);
     background: url("./public/icons/entrance.svg") no-repeat center / 24px 24px;
+}
+
+.link-user::after {
+    content: "";
+    position: absolute;
+    top: 50%;
+    right: 0;
+    width: 24px;
+    height: 24px;
+    transform: translateY(-50%);
+    background: url("./public/icons/user.svg") no-repeat center / 24px 24px;
 }
 
 .nav__count {

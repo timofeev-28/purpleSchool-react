@@ -16,3 +16,7 @@
     color: rgb(255, 255, 255);
     background: rgb(123, 110, 246);
 }
+
+.btn:disabled {
+    opacity: 0.5;
+}

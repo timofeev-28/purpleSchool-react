@@ -2,7 +2,7 @@
     position: relative;
     width: 384px;
     height: 60px;
-    padding-left: 56px;
+    padding-left: 18px;
     padding-right: 16px;
     border: 1px solid #323B54;
     border-radius: 12px;
@@ -12,9 +12,20 @@
     line-height: 16px;
 }
 
-.input-svg {
+.input:disabled {
+    opacity: 0.5;
+}
+
+.input-icon {
+    padding-left: 56px;
     background-image: url("/public/icons/search.svg");
     background-repeat: no-repeat;
     background-size: 24px 24px;
     background-position: left 17px center;
+}
+
+.invalid {
+    outline: none;
+    border: 1px solid red;
+    background: rgb(224, 141, 141);
 }

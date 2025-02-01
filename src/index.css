@@ -22,6 +22,7 @@ body {
   margin: 0;
   min-width: 320px;
   min-height: 100vh;
+  height: 100vh;
 }
 
 img {
@@ -38,6 +39,6 @@ a {
 
 .container {
   margin-inline: auto;
-  padding-bottom: 58px;
+  /* padding-bottom: 58px; */
   max-width: 1200px;
 }
