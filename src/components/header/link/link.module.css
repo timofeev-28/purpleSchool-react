@@ -9,7 +9,7 @@
     opacity: 1;
 }
 
-.link-entrance::after {
+.link_entrance::after {
     content: "";
     position: absolute;
     top: 50%;
@@ -20,7 +20,7 @@
     background: url("./public/icons/entrance.svg") no-repeat center / 24px 24px;
 }
 
-.link-user::after {
+.link_user::after {
     content: "";
     position: absolute;
     top: 50%;

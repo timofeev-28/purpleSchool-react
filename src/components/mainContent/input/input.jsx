@@ -10,14 +10,14 @@ const Input = forwardRef(function Input(
 
   return (
     <input
-      className={cn(styles["input"], {
-        [styles["input-icon"]]: appearance === "icon",
-        [styles["invalid"]]: !isValid,
+      className={cn(styles.input, {
+        [styles.input__icon]: appearance === "icon",
+        [styles.invalid]: !isValid,
       })}
-      name="userName"
+      name='userName'
       disabled={isLogined}
       ref={ref}
-      type="text"
+      type='text'
       placeholder={pl}
       value={value}
       onChange={onChange}

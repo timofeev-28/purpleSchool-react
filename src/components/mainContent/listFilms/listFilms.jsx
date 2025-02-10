@@ -3,7 +3,7 @@ import CardFilm from "./cardFilm/cardFilm";
 
 export default function ListFilms() {
   return (
-    <div className={styles["list-films"]}>
+    <div className={styles.list_films}>
       <CardFilm />
     </div>
   );

@@ -7,12 +7,12 @@ import Entrance from "./entrance/entrance.jsx";
 
 export default function MainContent() {
   return (
-    <main className={styles["main"]}>
-      <div className="container">
-        <Title title="Поиск" />
+    <main className={styles.main}>
+      <div className='container'>
+        <Title title='Поиск' />
         <Paragraph
-          text="Введите название фильма, сериала или мультфильма для поиска и добавления в избранное."
-          appearance="fz20"
+          text='Введите название фильма, сериала или мультфильма для поиска и добавления в избранное.'
+          appearance='fz20'
         />
         <SearchForm />
         <ListFilms />
