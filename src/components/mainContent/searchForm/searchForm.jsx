@@ -1,4 +1,3 @@
-// import styles from "./searchForm.module.css";
 import { useState, useRef } from "react";
 import Input from "../input/input.jsx";
 import Button from "../button/button.jsx";

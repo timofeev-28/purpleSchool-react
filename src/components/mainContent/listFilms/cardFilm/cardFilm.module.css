@@ -33,7 +33,7 @@
     background: url("./public/icons/star.svg") no-repeat center / 16px 16px;
 }
 
-.card__img-link {
+.card__img_link {
     display: block;
     border-radius: 12px;
     overflow: hidden;
@@ -41,7 +41,7 @@
     transition: border-color 0.2s;
 }
 
-.card__img-link:hover {
+.card__img_link:hover {
     border-color: #7B6EF6;
 }
 

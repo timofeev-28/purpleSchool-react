@@ -9,18 +9,18 @@ export default function Link({
   onClick,
 }) {
   return (
-    <li className={styles["nav__item"]}>
+    <li>
       <a
-        className={cn(styles["nav__link"], {
-          [styles["link-entrance"]]: appearance === "icon-entrance",
-          [styles["link-user"]]: appearance === "icon-user",
+        className={cn(styles.nav__link, {
+          [styles.link_entrance]: appearance === "icon-entrance",
+          [styles.link_user]: appearance === "icon-user",
         })}
         href={link}
         onClick={onClick}
       >
         {text}
         {countFavorites && (
-          <span className={styles["nav__count"]}>{countFavorites}</span>
+          <span className={styles.nav__count}>{countFavorites}</span>
         )}
       </a>
     </li>

@@ -14,18 +14,18 @@ export default function Nav() {
   };
 
   return (
-    <nav className={styles["nav"]}>
-      <ul className={styles["nav__list"]}>
-        <Link link="./" text="Поиск фильмов" />
-        <Link link="./" text="Мои фильмы" countFavorites="2" />
+    <nav className={styles.nav}>
+      <ul className={styles.nav__list}>
+        <Link link='./' text='Поиск фильмов' />
+        <Link link='./' text='Мои фильмы' countFavorites='2' />
         {user?.name && (
-          <Link link="./" text={user?.name} appearance="icon-user" />
+          <Link link='./' text={user?.name} appearance='icon-user' />
         )}
         <Link
           onClick={linkClickHandler}
-          link="./"
+          link='./'
           text={user?.isLogined ? "Выйти" : "Войти"}
-          appearance="icon-entrance"
+          appearance='icon-entrance'
         />
       </ul>
     </nav>

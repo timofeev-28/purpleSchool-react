@@ -5,8 +5,8 @@ import Nav from "./nav/nav";
 
 export default function Header() {
   return (
-    <header className={styles["header"]}>
-      <div className={cn(styles["header-container"], ["container"])}>
+    <header>
+      <div className={cn(styles.header__container, ["container"])}>
         <Logo />
         <Nav />
       </div>
