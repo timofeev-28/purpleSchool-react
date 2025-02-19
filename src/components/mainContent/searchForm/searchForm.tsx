@@ -1,10 +1,10 @@
-import { useState, useRef } from "react";
-import Input from "../input/input.jsx";
-import Button from "../button/button.jsx";
-import Form from "../form/form.jsx";
+import { useState, useRef } from 'react';
+import Input from '../input/input';
+import Button from '../button/button';
+import Form from '../form/form';
 
 export default function SearchForm() {
-  const [inputValue, setInputValue] = useState("");
+  const [inputValue, setInputValue] = useState('');
   const searchRef = useRef();
 
   const inputChange = (e) => {

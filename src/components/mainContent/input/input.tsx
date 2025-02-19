@@ -1,10 +1,11 @@
-import { forwardRef } from "react";
+import { ForwardedRef, forwardRef } from "react";
 import cn from "classnames";
 import styles from "./input.module.css";
+import { InputProps } from './input.props';
 
 const Input = forwardRef(function Input(
-  { placeholder, value, onChange, appearance, isValid = true, isLogined },
-  ref
+  { placeholder, name, type, value, onChange, appearance, isValid = true, isLogined }: InputProps,
+  ref: ForwardedRef<HTMLInputElement>
 ) {
   const pl = placeholder ? placeholder : "";
 
@@ -14,10 +15,10 @@ const Input = forwardRef(function Input(
         [styles.input__icon]: appearance === "icon",
         [styles.invalid]: !isValid,
       })}
-      name='userName'
+      name={name}
       disabled={isLogined}
       ref={ref}
-      type='text'
+      type={type}
       placeholder={pl}
       value={value}
       onChange={onChange}

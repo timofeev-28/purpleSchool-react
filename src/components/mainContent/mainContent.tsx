@@ -1,9 +1,9 @@
 import styles from "./mainContent.module.css";
-import Title from "./title/title.jsx";
-import Paragraph from "./paragraph/paragraph.jsx";
-import SearchForm from "./searchForm/searchForm.jsx";
-import ListFilms from "./listFilms/listFilms.jsx";
-import Entrance from "./entrance/entrance.jsx";
+import Title from "./title/title.js";
+import Paragraph from "./paragraph/paragraph.js";
+import SearchForm from "./searchForm/searchForm.js";
+import ListFilms from "./listFilms/listFilms.js";
+import Entrance from "./entrance/entrance.js";
 
 export default function MainContent() {
   return (
