@@ -1,13 +1,8 @@
 import cn from "classnames";
 import styles from "./link.module.css";
+import { LinkProps } from './link.props';
 
-export default function Link({
-  link,
-  text,
-  appearance,
-  countFavorites,
-  onClick,
-}) {
+export default function Link({link, text, appearance, countFavorites, onClick}: LinkProps) {
   return (
     <li>
       <a

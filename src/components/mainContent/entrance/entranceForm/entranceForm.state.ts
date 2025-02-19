@@ -1,4 +1,6 @@
-export const INITIAL_STATE = {
+import { FormState, FormAction } from './entranceForm.props';
+
+export const INITIAL_STATE: FormState = {
     isValid: {
         userName: true,
     },
@@ -8,7 +10,7 @@ export const INITIAL_STATE = {
     isFormReadyToSubmit: false
 };
 
-export function formReducer(state, action) {
+export function formReducer(state: FormState, action: FormAction): FormState {
     switch(action.type) {
         case 'SET_VALUE':
             return { ...state, value: { ...action.payload}};
@@ -21,10 +23,12 @@ export function formReducer(state, action) {
             return {
                 ...state,
                 isValid: {
-                    userName: userNameValidity,
+                    userName: userNameValidity > 0
                 },
-                isFormReadyToSubmit: userNameValidity
-            }
+                isFormReadyToSubmit: userNameValidity > 0
+            };
         }
+        default:
+            return state;
     }
 }

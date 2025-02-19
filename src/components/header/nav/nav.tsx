@@ -1,12 +1,12 @@
 import styles from "./nav.module.css";
 import Link from "../link/link";
-import { useContext } from "react";
+import { MouseEvent, useContext } from "react";
 import { UserContext } from "../../../context/user.context";
 
 export default function Nav() {
   const { user, setUser } = useContext(UserContext);
 
-  const linkClickHandler = (e) => {
+  const linkClickHandler = (e: MouseEvent) => {
     e.preventDefault();
     if (user?.isLogined) {
       setUser({ ...user, isLogined: false });

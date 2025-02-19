@@ -1,5 +1,5 @@
-import styles from "./cardFilm.module.css";
-import data from "../../../../assets/data";
+import styles from './cardFilm.module.css';
+import data from '../../../../assets/data';
 
 export default function CardFilm() {
   return (
