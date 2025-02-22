@@ -75,6 +75,10 @@
     opacity: 0.7;
 }
 
+.card__btn_fav {
+    color: #37D8A7;
+}
+
 .card__btn::after {
     content: "";
     position: absolute;
@@ -83,5 +87,13 @@
     transform: translateY(-50%);
     width: 24px;
     height: 24px;
-    background: url("./public/icons/like.svg") no-repeat center / 24px 24px;
+    background: var(--svg);
+}
+
+.card__btn_main::after {
+    --svg: url("./public/icons/like.svg") no-repeat center / 24px 24px;
+}
+
+.card__btn_fav::after {
+    --svg: url("./public/icons/favorites.svg") no-repeat center / 24px 24px;
 }

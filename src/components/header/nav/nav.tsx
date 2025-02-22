@@ -1,33 +1,33 @@
 import styles from "./nav.module.css";
-import Link from "../link/link";
 import { MouseEvent, useContext } from "react";
 import { UserContext } from "../../../context/user.context";
+import NavItem from '../navItem/navItem';
 
 export default function Nav() {
   const { user, setUser } = useContext(UserContext);
 
   const linkClickHandler = (e: MouseEvent) => {
-    e.preventDefault();
-    if (user?.isLogined) {
-      setUser({ ...user, isLogined: false });
-    }
+      if (user?.isLogined) {
+          e.preventDefault();
+          setUser({ ...user, isLogined: false });
+      }
   };
 
   return (
     <nav className={styles.nav}>
-      <ul className={styles.nav__list}>
-        <Link link='./' text='Поиск фильмов' />
-        <Link link='./' text='Мои фильмы' countFavorites='2' />
-        {user?.name && (
-          <Link link='./' text={user?.name} appearance='icon-user' />
-        )}
-        <Link
-          onClick={linkClickHandler}
-          link='./'
-          text={user?.isLogined ? "Выйти" : "Войти"}
-          appearance='icon-entrance'
-        />
-      </ul>
+        <ul className={styles.nav__list}>
+            <NavItem link='./' text='Поиск фильмов' />
+            <NavItem link='./favorites' text='Мои фильмы' countFavorites='2' />
+            {user?.name && (
+                <NavItem link='./' text={user?.name} appearance='icon-user' />
+            )}
+            <NavItem
+                onClick={linkClickHandler}
+                link='./login'
+                text={user?.isLogined ? "Выйти" : "Войти"}
+                appearance='icon-entrance'
+            />
+        </ul>
     </nav>
   );
 }
