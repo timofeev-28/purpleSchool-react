@@ -3,4 +3,5 @@ export interface CardFilmProps {
     title: string;
     image: string;
     rating: number;
+    favorites: boolean;
 }

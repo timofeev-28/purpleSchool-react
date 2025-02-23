@@ -13,6 +13,7 @@ export default function ListFilms() {
                       title={card.title}
                       image={card.image}
                       rating={card.rating}
+                      favorites={card.favorites}
                   />
               ))}
             {(!data || !data.cardsFilms) && (

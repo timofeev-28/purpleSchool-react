@@ -8,7 +8,6 @@ export default function Nav() {
 
   const linkClickHandler = (e: MouseEvent) => {
       if (user?.isLogined) {
-          e.preventDefault();
           setUser({ ...user, isLogined: false });
       }
   };
@@ -19,7 +18,7 @@ export default function Nav() {
             <NavItem link='./' text='Поиск фильмов' />
             <NavItem link='./favorites' text='Мои фильмы' countFavorites='2' />
             {user?.name && (
-                <NavItem link='./' text={user?.name} appearance='icon-user' />
+                <NavItem link='./user' text={user?.name} appearance='icon-user' />
             )}
             <NavItem
                 onClick={linkClickHandler}

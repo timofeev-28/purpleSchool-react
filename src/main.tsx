@@ -8,6 +8,7 @@ import Login from './pages/login/login';
 import Favorites from './pages/favorites/favorites';
 import Error from './pages/error/error';
 import Movie from './pages/movie/movie';
+import User from './pages/user/user';
 
 const router = createBrowserRouter([
   {
@@ -29,6 +30,10 @@ const router = createBrowserRouter([
       {
         path: '/movie/:id',
         element: <Movie />
+      },
+      {
+        path: '/user',
+        element: <User />
       },
       {
         path: '*',
