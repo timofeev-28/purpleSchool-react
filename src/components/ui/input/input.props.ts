@@ -1,4 +1,4 @@
-import { ChangeEvent } from 'react';
+import { ChangeEvent} from 'react';
 
 export interface InputProps {
     placeholder: string;
@@ -7,6 +7,6 @@ export interface InputProps {
     value: string;
     onChange: (e: ChangeEvent<HTMLInputElement>) => void;
     appearance: string;
-    isValid: boolean;
-    isLogined: boolean;
+    isValid?: boolean;
+    isLogined?: boolean;
 }

@@ -1,9 +1,9 @@
 import { useEffect, useReducer, useRef, useContext, FormEvent, ChangeEvent } from 'react';
-import Input from '../../input/input';
-import Button from '../../button/button';
-import Form from '../../form/form';
+import Input from '../../ui/input/input';
+import Button from '../../ui/button/button';
+import Form from '../../ui/form/form';
 import { formReducer, INITIAL_STATE } from './entranceForm.state.js';
-import { UserContext } from '../../../../context/user.context';
+import { UserContext } from '../../../context/user.context';
 
 
 export default function EntranceForm() {
