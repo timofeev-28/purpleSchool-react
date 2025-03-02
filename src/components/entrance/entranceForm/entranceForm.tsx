@@ -4,13 +4,14 @@ import Button from '../../ui/button/button';
 import Form from '../../ui/form/form';
 import { formReducer, INITIAL_STATE } from './entranceForm.state.js';
 import { UserContext } from '../../../context/user.context';
-
+import { useNavigate } from 'react-router-dom';
 
 export default function EntranceForm() {
   const [formState, dispatchForm] = useReducer(formReducer, INITIAL_STATE);
   const { isValid, value, isFormReadyToSubmit } = formState;
   const { user, setUser } = useContext(UserContext);
   const userRef = useRef<HTMLInputElement>(null);
+  const navigate = useNavigate();
 
   const focusError = () => {
     if (userRef.current) {
@@ -44,6 +45,7 @@ export default function EntranceForm() {
   const onSubmitHandler = (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     dispatchForm({ type: 'SUBMIT' });
+    navigate('/');
   };
 
   return (

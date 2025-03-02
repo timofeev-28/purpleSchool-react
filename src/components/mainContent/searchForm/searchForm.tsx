@@ -1,10 +1,11 @@
-import { useState, useRef } from 'react';
+import { useState, useRef, FormEvent } from 'react';
 import Input from '../../ui/input/input';
 import Button from '../../ui/button/button';
 import Form from '../../ui/form/form';
 import { ChangeEvent } from 'react';
+import { LoginForm, SearchFormProps } from './searchForm.props';
 
-export default function SearchForm() {
+export default function SearchForm({getData}: SearchFormProps) {
   const [inputValue, setInputValue] = useState<string>('');
   const searchRef = useRef<HTMLInputElement>(null);
 
@@ -12,26 +13,28 @@ export default function SearchForm() {
     setInputValue(e.target.value);
   };
 
-  const clickBtnHandler = (inputValue: string) => {
-    console.log(inputValue);
-  };
-
-  const onSubmitHandler = (e: { preventDefault: () => void; }) => {
+  const onSubmitHandler = async (e: FormEvent) => {
     e.preventDefault();
+    const target = e.target as typeof e.target & LoginForm;
+    const { search } = target;
+    await getData(search.value);
+    setInputValue('');
   };
 
   return (
-      <Form onSubmit={onSubmitHandler}>
-          <Input
-              appearance="icon"
-              ref={searchRef}
-              placeholder="Введите название"
-              value={inputValue}
-              onChange={inputChange}
-              name={'search'}
-              type={'text'}
-          />
-          <Button text="Искать" onClick={() => clickBtnHandler(inputValue)} />
-      </Form>
+    <>
+        <Form onSubmit={onSubmitHandler}>
+            <Input
+                appearance="icon"
+                ref={searchRef}
+                placeholder="Введите название"
+                value={inputValue}
+                onChange={inputChange}
+                name={'search'}
+                type={'text'}
+            />
+            <Button text="Искать" />
+        </Form>
+    </>
   );
 }
