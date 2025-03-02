@@ -21,7 +21,7 @@ export default function FavoritesFilms() {
                         />
                 ))}
                 {(data && data.favorites?.length === 0) && (
-                <p className={styles.favorites__text}>Здесь пока ничего нет, выберите любимые фильмы!</p>
+                <p className={styles.favorites__text}>Здесь пока ничего нет, выберите любимые фильмы!!</p>
                 )}
             </div>
         </section>
