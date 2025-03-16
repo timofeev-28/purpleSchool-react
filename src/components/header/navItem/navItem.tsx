@@ -3,7 +3,7 @@ import styles from "./navItem.module.css";
 import { LinkProps } from './navItem.props';
 import { NavLink } from 'react-router-dom';
 
-export default function NavItem({link, text, appearance, countFavorites, onClick}: LinkProps) {
+export default function NavItem({link, text, appearance, isLogined, countFavorites, onClick}: LinkProps) {
   return (
     <li>
       <NavLink
@@ -16,7 +16,7 @@ export default function NavItem({link, text, appearance, countFavorites, onClick
         onClick={onClick}
       >
         {text}
-        {countFavorites && (
+        {countFavorites !== undefined && isLogined && (
           <span className={styles.nav__count}>{countFavorites}</span>
         )}
       </NavLink>

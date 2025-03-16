@@ -3,21 +3,25 @@ import styles from './favoritesFilms.module.css';
 import Title from '../ui/title/title';
 import CardFilm from '../mainContent/listFilms/cardFilm/cardFilm';
 import data from '../../assets/data';
+import { useContext } from 'react';
+import { UserContext } from '../../context/user.context';
+
 
 export default function FavoritesFilms() {
+      const { favorites } = useContext(UserContext);
+    
     return (
         <section className={cn(styles.favorites, 'container')}>
             <Title text='Избранное' />
             <div className={styles.favorites__wrap}>
-                {data && data.favorites?.length > 0 &&
-                    data.favorites?.map((card) => (
+                {favorites && favorites.length > 0 &&
+                    favorites.map((film) => (
                         <CardFilm
-                            key={card.id}
-                            id={card.id}
-                            title={card.title}
-                            image={card.image}
-                            rating={card.rating}
-                            favorites={card.favorites}
+                            key={film.id}
+                            id={film.id}
+                            title={film.title}
+                            image={film.image}
+                            rating={film.rating}
                         />
                 ))}
                 {(data && data.favorites?.length === 0) && (

@@ -1,23 +1,18 @@
 import { ReactNode } from 'react';
+import { CardFilmProps } from '../components/mainContent/listFilms/cardFilm/cardFilm.props';
 
 export interface UserContextProviderProps {
-  children: ReactNode;
+    children: ReactNode;
 }
 
 export interface UserContextType {
-  user: {
     name: string;
-    isLogined: boolean;
-  };
-  // setUser: React.Dispatch<React.SetStateAction<{ name: string; isLogined: boolean }>>
+    isLogined?: boolean;
+    favorites: CardFilmProps[];
 
-  setUser: (user: {
-    name: string;
-    isLogined: boolean;
-  }) => void;
+    // setUser: (user: {
+    //     name: string;
+    //     isLogined: boolean;
+    //     favorites: CardFilmProps[];
+    // }) => void;
 }
-
-// export interface UserContextType {
-//   user: { name: string; isLogined: boolean } | null;
-//   setUser: React.Dispatch<React.SetStateAction<{ name: string; isLogined: boolean } | null>>;
-// }

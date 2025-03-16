@@ -5,13 +5,33 @@ import Form from '../../ui/form/form';
 import { formReducer, INITIAL_STATE } from './entranceForm.state.js';
 import { UserContext } from '../../../context/user.context';
 import { useNavigate } from 'react-router-dom';
+import { userActions, UserState } from '../../../store/userSlice/user.slice';
+import { useDispatch } from 'react-redux';
+import { KEY_LOCAL_STORAGE, loadState, saveState } from '../../../store/userSlice/storage';
+
 
 export default function EntranceForm() {
   const [formState, dispatchForm] = useReducer(formReducer, INITIAL_STATE);
   const { isValid, value, isFormReadyToSubmit } = formState;
-  const { user, setUser } = useContext(UserContext);
   const userRef = useRef<HTMLInputElement>(null);
   const navigate = useNavigate();
+  const dispatch = useDispatch();
+  const { isLogined } = useContext(UserContext);
+
+  const saveLogIn = (name: string) => {
+    const res: UserState[] = loadState(KEY_LOCAL_STORAGE);
+    const userLogIn = res.find(el => el.name === name);
+
+    if (!userLogIn) {
+        saveState([ ...res, {name: name, isLogined:  true, favorites: []}], KEY_LOCAL_STORAGE);
+        dispatch(userActions.logIn({ name: name, isLogined:  true, favorites: [] }));
+    } else {
+        const changedUserLogIn = { ...userLogIn, isLogined: true};
+        const filteredRes = res.filter((el) => el.name !== name);
+        dispatch(userActions.logIn(changedUserLogIn));
+        saveState([...filteredRes, changedUserLogIn], KEY_LOCAL_STORAGE);
+    }
+}
 
   const focusError = () => {
     if (userRef.current) {
@@ -27,7 +47,7 @@ export default function EntranceForm() {
 
   useEffect(() => {
     if (isFormReadyToSubmit) {
-      setUser({ name: value.userName, isLogined: true });
+      saveLogIn(value.userName);
       dispatchForm({ type: 'CLEAR' });
     }
   }, [isFormReadyToSubmit]);
@@ -56,12 +76,12 @@ export default function EntranceForm() {
         type='text'
         name='userName'
         isValid={isValid.userName}
-        isLogined={user?.isLogined}
+        isLogined={isLogined}
         placeholder='Ваше имя'
         value={value.userName}
         onChange={inputChange}
       />
-      <Button text='Войти в профиль' isLogined={user?.isLogined} />
+      <Button text='Войти в профиль' isLogined={isLogined} />
     </Form>
   );
 }

@@ -4,5 +4,6 @@ export interface LinkProps extends AnchorHTMLAttributes<HTMLAnchorElement> {
     link: string;
     text: string;
     appearance?: string;
-    countFavorites?: string;
+    countFavorites?: number;
+    isLogined?: boolean;
 }
