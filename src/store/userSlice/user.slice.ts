@@ -27,7 +27,6 @@ export const userSlice = createSlice({
         },
         deleteFavorites: (state, action) => {
             state.name = action.payload.name;
-            // state.isLogined = action.payload.isLogined;
             state.favorites = action.payload.favorites;
         },
         addFavorites: (state, action) => {

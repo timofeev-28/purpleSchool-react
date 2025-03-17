@@ -2,6 +2,7 @@ import styles from "./form.module.css";
 import cn from "classnames";
 import { FormProps } from './formProps';
 
+
 export default function Form({ children, onSubmit, appearance }: FormProps) {
   return (
     <form

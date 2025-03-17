@@ -2,13 +2,12 @@ import cn from 'classnames';
 import styles from './favoritesFilms.module.css';
 import Title from '../ui/title/title';
 import CardFilm from '../mainContent/listFilms/cardFilm/cardFilm';
-import data from '../../assets/data';
 import { useContext } from 'react';
 import { UserContext } from '../../context/user.context';
 
 
 export default function FavoritesFilms() {
-      const { favorites } = useContext(UserContext);
+    const { favorites } = useContext(UserContext);
     
     return (
         <section className={cn(styles.favorites, 'container')}>
@@ -24,7 +23,7 @@ export default function FavoritesFilms() {
                             rating={film.rating}
                         />
                 ))}
-                {(data && data.favorites?.length === 0) && (
+                {(favorites && favorites.length === 0) && (
                 <p className={styles.favorites__text}>Здесь пока ничего нет, выберите любимые фильмы!!</p>
                 )}
             </div>

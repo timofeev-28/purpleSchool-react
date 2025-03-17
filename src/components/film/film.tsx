@@ -5,6 +5,7 @@ import { Suspense } from 'react';
 import { Await, useLoaderData } from 'react-router-dom';
 import { FilmProps } from './film.props';
 
+
 export default function Film() {
     const data = useLoaderData() as FilmProps;
 
@@ -25,7 +26,12 @@ export default function Film() {
                             <p className={styles.film__descr}>{short?.description}</p>
                             <div className={styles.film__rating_wrap}>
                                 <p className={styles.film__rating}>{short?.aggregateRating?.ratingValue}</p>
-                                <ButtonFavorites />
+                                <ButtonFavorites
+                                 id={data.imdbId} 
+                                 title={short?.name} 
+                                 image={short?.image}
+                                  rating={short?.aggregateRating?.ratingValue} 
+                                  />
                             </div>
                             <p className={styles.film__text}>
                                 <span className={styles.film__subtitle}>Тип</span>

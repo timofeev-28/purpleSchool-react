@@ -5,6 +5,7 @@ import Form from '../../ui/form/form';
 import { ChangeEvent } from 'react';
 import { LoginForm, SearchFormProps } from './searchForm.props';
 
+
 export default function SearchForm({getData}: SearchFormProps) {
   const [inputValue, setInputValue] = useState<string>('');
   const searchRef = useRef<HTMLInputElement>(null);

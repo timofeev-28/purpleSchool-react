@@ -28,8 +28,8 @@ export default function EntranceForm() {
     } else {
         const changedUserLogIn = { ...userLogIn, isLogined: true};
         const filteredRes = res.filter((el) => el.name !== name);
-        dispatch(userActions.logIn(changedUserLogIn));
         saveState([...filteredRes, changedUserLogIn], KEY_LOCAL_STORAGE);
+        dispatch(userActions.logIn(changedUserLogIn));
     }
 }
 

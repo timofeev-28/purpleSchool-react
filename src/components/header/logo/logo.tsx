@@ -1,6 +1,7 @@
 import { Link, useLocation } from 'react-router-dom';
 import styles from "./logo.module.css";
 
+
 export default function Logo() {
     const location = useLocation();
 

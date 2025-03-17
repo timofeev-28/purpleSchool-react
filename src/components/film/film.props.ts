@@ -1,4 +1,5 @@
 export interface FilmProps {
+    imdbId: string;
     short: {
         name: string;
         image: string;
