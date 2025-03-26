@@ -9,6 +9,36 @@ import { FilmProps } from './film.props';
 export default function Film() {
     const data = useLoaderData() as FilmProps;
 
+    const getDuration = (duration: string) => {
+        if (!duration) {
+            return;
+        }
+
+        let arr = duration.split('');
+        let hours: number = 0;
+        let min: number = 0;
+        let sec: number = 0;
+
+        if (arr.includes('H')) {
+            hours = Number(arr.slice(2, arr.indexOf('H')).join('')) * 60;
+            arr.splice(0, arr.indexOf('H') + 1);
+        } else {
+            arr.splice(0, 2);
+        }
+
+        if (arr.includes('M')) {
+            min = Number(arr.slice(0, arr.indexOf('M')).join(''));
+            arr.splice(0, arr.indexOf('M') + 1);
+        }
+
+        if (arr.includes('S')) {
+            let seconds = Number(arr.slice(0, arr.indexOf('S')).join(''));
+            sec = Math.round(seconds / 60);
+        }
+
+        return hours + min + sec;
+    }
+
     return (
         <Suspense fallback={'Загрузка...'}>
             <Await resolve={data}>
@@ -42,12 +72,13 @@ export default function Film() {
                                 {short?.datePublished}
                             </p>
                             <p className={styles.film__text}>
-                                <span className={styles.film__subtitle}>Длительность</span>
-                                {}
+                                <span className={styles.film__subtitle}>Длительность трейлера</span>
+                                {short?.trailer?.duration && <>{getDuration(short?.trailer?.duration)} мин</>}
+                                {!short?.trailer?.duration && <>Нет данных</>}
                             </p>
                             <p className={styles.film__text}>
                                 <span className={styles.film__subtitle}>Жанр</span>
-                                {short?.genre?.join(', ')}
+                                {(short?.genre).join(', ')}
                             </p>
                         </div>
                     </div>

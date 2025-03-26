@@ -2,12 +2,12 @@ import cn from 'classnames';
 import styles from './favoritesFilms.module.css';
 import Title from '../ui/title/title';
 import CardFilm from '../mainContent/listFilms/cardFilm/cardFilm';
-import { useContext } from 'react';
-import { UserContext } from '../../context/user.context';
+import { useSelector } from 'react-redux';
+import { RootState } from '../../store/store';
 
 
 export default function FavoritesFilms() {
-    const { favorites } = useContext(UserContext);
+    const { favorites } = useSelector((s: RootState) => s.user);
     
     return (
         <section className={cn(styles.favorites, 'container')}>

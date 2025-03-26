@@ -8,6 +8,7 @@ import axios from 'axios';
 import { PREFIX } from '../../helpers/API';
 import { GetDataProps, StateProps } from './mainContent.props';
 
+
 export default function MainContent() {
     const [movies, setMovies] = useState<StateProps[]>([]);
     const [error, setError] = useState<boolean>(false);

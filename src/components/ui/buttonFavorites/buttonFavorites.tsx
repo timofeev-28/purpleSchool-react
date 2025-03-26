@@ -1,15 +1,14 @@
 import styles from './buttonFavorites.module.css';
 import cn from "classnames";
 import { ButtonFavoritesProps } from './buttonFavorites.props';
-import { UserContext } from '../../../context/user.context';
-import { useContext } from 'react';
 import { loadState, KEY_LOCAL_STORAGE, saveState } from '../../../store/userSlice/storage';
 import { userActions, UserState } from '../../../store/userSlice/user.slice';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
+import { RootState } from '../../../store/store';
 
 
 export default function ButtonFavorites({id, title, image, rating}: ButtonFavoritesProps) {
-    const { name, isLogined, favorites } = useContext(UserContext);
+    const { name, isLogined, favorites } = useSelector((s: RootState) => s.user);
     const dispatch = useDispatch();
 
     const isFavorites = favorites.some(film => film.id === id);

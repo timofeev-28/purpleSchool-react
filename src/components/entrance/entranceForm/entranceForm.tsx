@@ -1,13 +1,13 @@
-import { useEffect, useReducer, useRef, useContext, FormEvent, ChangeEvent } from 'react';
+import { useEffect, useReducer, useRef, FormEvent, ChangeEvent } from 'react';
 import Input from '../../ui/input/input';
 import Button from '../../ui/button/button';
 import Form from '../../ui/form/form';
 import { formReducer, INITIAL_STATE } from './entranceForm.state.js';
-import { UserContext } from '../../../context/user.context';
 import { useNavigate } from 'react-router-dom';
 import { userActions, UserState } from '../../../store/userSlice/user.slice';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { KEY_LOCAL_STORAGE, loadState, saveState } from '../../../store/userSlice/storage';
+import { RootState } from '../../../store/store';
 
 
 export default function EntranceForm() {
@@ -16,7 +16,7 @@ export default function EntranceForm() {
   const userRef = useRef<HTMLInputElement>(null);
   const navigate = useNavigate();
   const dispatch = useDispatch();
-  const { isLogined } = useContext(UserContext);
+  const { isLogined } = useSelector((s: RootState) => s.user);
 
   const saveLogIn = (name: string) => {
     const res: UserState[] = loadState(KEY_LOCAL_STORAGE);
@@ -31,7 +31,7 @@ export default function EntranceForm() {
         saveState([...filteredRes, changedUserLogIn], KEY_LOCAL_STORAGE);
         dispatch(userActions.logIn(changedUserLogIn));
     }
-}
+  }
 
   const focusError = () => {
     if (userRef.current) {

@@ -15,5 +15,8 @@ export interface FilmProps {
             dateCreated: string;
             reviewBody: string;
         }
+        trailer: {
+            duration: string;
+        }
     }
 };

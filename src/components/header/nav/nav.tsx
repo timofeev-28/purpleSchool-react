@@ -1,14 +1,14 @@
 import styles from "./nav.module.css";
-import { MouseEvent, useContext } from "react";
-import { UserContext } from "../../../context/user.context";
+import { MouseEvent } from "react";
 import NavItem from '../navItem/navItem';
 import { userActions, UserState } from '../../../store/userSlice/user.slice';
 import { KEY_LOCAL_STORAGE, loadState, saveState } from '../../../store/userSlice/storage';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
+import { RootState } from '../../../store/store';
 
 
 export default function Nav() {
-    const { name, isLogined, favorites } = useContext(UserContext);
+    const { name, isLogined, favorites } = useSelector((s: RootState) => s.user);
     const dispatch = useDispatch();
 
     const saveLogOut = (name: string) => {

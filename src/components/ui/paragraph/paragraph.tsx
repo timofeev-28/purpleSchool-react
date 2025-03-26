@@ -2,6 +2,7 @@ import cn from "classnames";
 import styles from "./paragraph.module.css";
 import { ParagraphProps } from './paragraph.props';
 
+
 export default function Paragraph({ text, appearance }: ParagraphProps) {
   return (
     <p
