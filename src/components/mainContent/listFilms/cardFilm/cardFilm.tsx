@@ -3,7 +3,8 @@ import styles from './cardFilm.module.css';
 import { CardFilmProps } from './cardFilm.props';
 import ButtonFavorites from '../../../ui/buttonFavorites/buttonFavorites';
 
-export default function CardFilm({id, title, favorites, image, rating }: CardFilmProps) {
+
+export default function CardFilm({id, title, image, rating }: CardFilmProps) {
     return (
         <div className={styles.card} key={id}>
             <span className={styles.card__rating}>{rating}</span>
@@ -15,7 +16,7 @@ export default function CardFilm({id, title, favorites, image, rating }: CardFil
                 />
             </Link>
             <h2 className={styles.card__title}>{title}</h2>
-            <ButtonFavorites favorites={favorites} />
+            <ButtonFavorites id={id} title={title} image={image} rating={rating} />
         </div>
     );
 }

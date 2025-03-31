@@ -1,4 +1,4 @@
-import { createBrowserRouter, RouterProvider } from 'react-router-dom';
+import { createBrowserRouter } from 'react-router-dom';
 import { Layout } from '../layout/layuot/layout';
 import Film from '../components/film/film';
 import UserProfile from '../components/userProfile/userProfile';
@@ -9,6 +9,7 @@ import ErrorPage from '../components/errorPage/errorPage';
 import axios from 'axios';
 import { PREFIX } from '../helpers/API';
 import { RequireAuth } from '../helpers/requireAuth';
+
 
 export const router = createBrowserRouter([
     {

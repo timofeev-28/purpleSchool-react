@@ -3,6 +3,7 @@ import cn from "classnames";
 import styles from "./input.module.css";
 import { InputProps } from './input.props';
 
+
 const Input = forwardRef(function Input(
   { placeholder, name, type, value, onChange, appearance, isValid = true, isLogined }: InputProps,
   ref: ForwardedRef<HTMLInputElement>
